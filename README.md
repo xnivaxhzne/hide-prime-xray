@@ -1,5 +1,10 @@
 # Hide Amazon Prime's X-ray
 
+## Alternative approach:
+Use [stylus](https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne), a published extension as pointed out [here](https://github.com/xnivaxhzne/hide-prime-xray/issues/1#issue-2228679350).
+
+---
+
 ## Overview:
 
 Enhancing your Amazon Prime video experience is usually delightful, but the X-ray scene information during the pause screen can be distracting. Enter the solution: `hide-prime-xray`, a Chrome extension designed to seamlessly disable the X-ray feature.
@@ -33,6 +38,3 @@ Enhancing your Amazon Prime video experience is usually delightful, but the X-ra
 1. Refresh your Prime Video site.
 2. The X-ray panel will be completely hidden, providing a distraction-free viewing experience.
 
----
-
-If you find this extension useful, consider showing your support by starring the repository. Thank you! 🌟🙏
