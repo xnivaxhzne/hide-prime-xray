@@ -6,7 +6,7 @@
   "content_scripts": [
     {
       "js": ["content.js"],
-      "matches": ["https://www.primevideo.com/*", "https://www.amazon.co.uk/*video*"]
+      "matches": ["https://www.primevideo.com/*", "https://www.amazon.co.uk/*video*", "https://www.amazon.com/gp/video/*"]
     }
   ]
 }
