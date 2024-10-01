@@ -1,12 +1,22 @@
 {
   "manifest_version": 3,
-  "name": "Hide Prime's Xray",
-  "description": "Hide the X-ray panel in primevideo website.",
+  "name": "X-Ray Hider for Amazon Prime Video",
   "version": "1.0",
+  "description": "Automatically hide the X-Ray overlay on the paused screen of Amazon Prime Video for better viewing of subtitles and video content",
   "content_scripts": [
     {
-      "js": ["content.js"],
-      "matches": ["https://www.primevideo.com/*", "https://www.amazon.co.uk/*video*", "https://www.amazon.com/gp/video/*"]
+      "matches": [
+        "https://www.primevideo.com/*",
+        "https://www.amazon.co.uk/*video*",
+        "https://www.amazon.com/gp/video/*"
+      ],
+      "js": ["content.js"]
     }
-  ]
+  ],
+  "icons": {
+    "16": "assets/icon16.png",
+    "32": "assets/icon32.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  }
 }

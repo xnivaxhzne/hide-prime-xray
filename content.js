@@ -1,45 +1,27 @@
-let hideXrayQuickViewExecuted = false;
-
-function hideXrayQuickView() {
-  if (!hideXrayQuickViewExecuted) {
-    const styleElement = document.createElement("style");
-    styleElement.type = "text/css";
-    document.head.appendChild(styleElement);
-
-    const styleSheet = styleElement.sheet;
-    const rule = ".xrayQuickView { visibility: hidden !important; }";
-
-    styleSheet.insertRule(rule, styleSheet.cssRules.length);
-
-    hideXrayQuickViewExecuted = true;
+const hideXrayQuickView = () => {
+  const xRayQuickViewEl = document.querySelector(".xrayQuickView");
+  if (xRayQuickViewEl) {
+    xRayQuickViewEl.style.display = "none";
   }
-}
 
-function observeDOM() {
-  const targetNode = document.body;
+  const overlayContainerFirstDivChildEl = document.querySelector(
+    '[class*="-overlays-container"] > div'
+  );
 
-  const observer = new MutationObserver(function (mutations) {
-    mutations.forEach(function (mutation) {
-      if (mutation.addedNodes && mutation.addedNodes.length > 0) {
-        const xrayQuickViewEl = document.querySelector(".xrayQuickView");
-        if (xrayQuickViewEl) {
-          hideXrayQuickView();
-          observer.disconnect();
-        }
-      }
-    });
-  });
+  if (overlayContainerFirstDivChildEl) {
+    overlayContainerFirstDivChildEl.style.background = "none";
+  }
 
-  const config = { childList: true, subtree: true };
-  observer.observe(targetNode, config);
-}
+  const captionsOverlayEl = document.querySelector(
+    '[class*="-captions-overlay"]'
+  );
 
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", afterLoaded);
-} else {
-  afterLoaded();
-}
+  if (captionsOverlayEl) {
+    captionsOverlayEl.style.opacity = "1";
+  }
+};
 
-function afterLoaded() {
-  observeDOM();
-}
+window.onload = hideXrayQuickView;
+
+const observer = new MutationObserver(hideXrayQuickView);
+observer.observe(document.body, { childList: true, subtree: true });
