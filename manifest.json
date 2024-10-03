@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "X-Ray Hider for Amazon Prime Video",
-  "version": "1.0",
+  "version": "1.0.1",
   "description": "Automatically hide the X-Ray overlay on the paused screen of Amazon Prime Video for better viewing of subtitles and video content",
   "content_scripts": [
     {
