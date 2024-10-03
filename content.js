@@ -1,27 +1,37 @@
 const hideXrayQuickView = () => {
-  const xRayQuickViewEl = document.querySelector(".xrayQuickView");
-  if (xRayQuickViewEl) {
-    xRayQuickViewEl.style.display = "none";
-  }
+  const xRayQuickViewEls = document.querySelectorAll(".xrayQuickView");
+  xRayQuickViewEls.forEach((xRayQuickViewEl) => {
+    if (xRayQuickViewEl.style.display !== "none") {
+      xRayQuickViewEl.style.display = "none";
+    }
+  });
 
-  const overlayContainerFirstDivChildEl = document.querySelector(
+  const overlayContainerFirstDivChildEls = document.querySelectorAll(
     '[class*="-overlays-container"] > div'
   );
 
-  if (overlayContainerFirstDivChildEl) {
-    overlayContainerFirstDivChildEl.style.background = "none";
-  }
+  overlayContainerFirstDivChildEls.forEach(
+    (overlayContainerFirstDivChildEl) => {
+      if (overlayContainerFirstDivChildEl.style.background !== "none") {
+        overlayContainerFirstDivChildEl.style.background = "none";
+      }
+    }
+  );
 
-  const captionsOverlayEl = document.querySelector(
+  const captionsOverlayEls = document.querySelectorAll(
     '[class*="-captions-overlay"]'
   );
 
-  if (captionsOverlayEl) {
-    captionsOverlayEl.style.opacity = "1";
-  }
+  captionsOverlayEls.forEach((captionsOverlayEl) => {
+    if (captionsOverlayEl.style.opacity !== "1") {
+      captionsOverlayEl.style.opacity = "1";
+    }
+  });
 };
 
-window.onload = hideXrayQuickView;
-
 const observer = new MutationObserver(hideXrayQuickView);
-observer.observe(document.body, { childList: true, subtree: true });
+
+window.onload = function () {
+  const config = { childList: true, subtree: true };
+  observer.observe(document.body, config);
+};
