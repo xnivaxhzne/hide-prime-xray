@@ -1,5 +1,7 @@
 # X-Ray Hider for Amazon Prime Video
 
+Install it from the Chrome Web Store: https://chromewebstore.google.com/detail/acacknghohhlikeeopbmfcekfdcnjfjn
+
 ## Problem❗:
 
 ![what-it-does](/images/from.png)
